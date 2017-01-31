@@ -1,3 +1,5 @@
+##2.5 exo 1
+
 ```
 #include <stdio.h>
 #include <stdlib.h> //Inclusion des librairies nécéssaires.
@@ -13,3 +15,4 @@ char c1=7, c2=14; //déclaration variable char
     return 0;
 }
 ```
+
