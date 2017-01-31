@@ -14,4 +14,5 @@ int rec1, rec2; //Déclaration de deux variables int
     printf("les valeurs entrées sont : %d et %d\n",rec1,rec2); //affichage printf des valeurs de variables
     return 0;
 }
-```
+
+//Seuls des entiers positifs sont captés. Autrement ca fais déconner le programme. Utiliser un float ou un double pour les réels non-entiers.```
