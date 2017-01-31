@@ -18,3 +18,6 @@ int rec1, rec2; //Déclaration de deux variables int
 
 //Seuls des entiers positifs sont captés. Autrement ca fais déconner le programme. Utiliser un float ou un double pour les réels non-entiers.
 ```
+
+Mais ca ne fonctionne que pour les nombres entiers. Pour récupérer une lettre on tente:
+
