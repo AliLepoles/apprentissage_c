@@ -14,7 +14,7 @@ int main()
     rewind(stdin);
     printf("Votre clef de cryptage est %d \n",key);
     system("PAUSE");
-    printf("Entrez votre mot crypte en treize lettres \n");
+    printf("Entrez votre mot non crypte en treize lettres \n");
     scanf("%c%c%c%c%c%c%c%c%c%c%c%c%c",&lt1,&lt2,&lt3,&lt4,&lt5,&lt6,&lt7,&lt8,&lt9,&lt10,&lt11,&lt12,&lt13);
     printf("Votre mot est : %c%c%c%c%c%c%c%c%c%c%c%c%c \n",lt1,lt2,lt3,lt4,lt5,lt6,lt7,lt8,lt9,lt10,lt11,lt12,lt13);
     rewind(stdin);
@@ -24,3 +24,6 @@ int main()
 return 0;
 }
 ```
+
+Log de décryptage:
+
