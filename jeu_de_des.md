@@ -41,5 +41,6 @@ int main()
             (s4 > 15) ? printf("Vous avez gagné avec un score de %d",s4) : printf("Vous avez perdu avec un score de %d",s4);
             break;
     }
+return 0;
 
 ```
