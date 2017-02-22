@@ -1,6 +1,3 @@
-// Programme de jeu avec trésor, ennemi et (bientot) ballon controlable.
-
-
 #include <stdio.h>    // pour utilisation fonctions affichage
 #include <stdlib.h>   // pour fonction srand() et rand()
 #include <time.h>     // pour initialisation srand() avec time()
@@ -21,7 +18,7 @@ int main()
 int encode;
 encode = GetConsoleOutputCP();
 SetConsoleOutputCP(1252);
-int fin=0, res, x, y, trsx=11, trsy=8, foex=1, foey=1, score=1, end=1, foe;					//1
+int fin=0, res, x, y, trsx=11, trsy=8, foex=1, foey=1, score=1, end=1, foe, ballx, bally;					//1
 const int TX=20, TY=15;
 
 	srand(time(NULL));
@@ -30,8 +27,12 @@ const int TX=20, TY=15;
     foex=rand()%TX;
     foey=rand()%TX;
     foe=rand()%4+1;
+    ballx=rand()%TX;
+    bally=rand()%TY;
 	gotoxy(x,y);
 	putchar('X');
+	gotoxy(ballx,bally);
+	putchar('o');
 
 	while (! fin){ // équivalent à fin==0		//2
 
@@ -83,23 +84,49 @@ const int TX=20, TY=15;
 	    putchar('X');
 
 	    gotoxy(foex,foey);					//affiche l'ennemi a sa position
-	    putchar('O');
+	    putchar('Y');
 
 	    if (x == trsx && y == trsy) //trésor caché, affiche un message et incrémente le score si touché
-            printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\Vous avez trouvé un trésor. GG. \n Votre score est %d.",score++);
+            printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVous avez trouvé un trésor. GG. \n Votre score est %d.",score++);
             trsx=rand()%TX;
             trsy=rand()%TY;
 
         if(x == foex && y == foey) //ennemi déplacant, affiche un death screen et termine le prog
-            printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\Vous avez été touché par l'énnemi. \nVous etes décédé, votre score est %d",score,end++);
+            printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVous avez été touché par l'énnemi. \nVous etes décédé, votre score est %d",score,end++);
+
+        if(x == ballx && y == bally){
+            printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVous tapez dans le ballon !");
+            gotoxy(ballx,bally);
+            putchar('X');
+            {
+            if (rand()%4 == 1)
+                ballx+=3;
+            if (rand()%4 == 2)
+                bally+=3;
+            if (rand()%4 == 3)
+                ballx-=3;
+            if (rand()%4 == 4)
+                bally-=3;
+            }
+            gotoxy(ballx,bally);
+            putchar('o');
+            if (ballx<0)						//pareil pour l'ennemi
+                ballx=TX;
+            if (ballx>TX)
+                ballx=0;
+            if (bally<0)
+                bally=TY;
+            if (bally>TY)
+                bally=0;
+        }
 
 
         if (end == 2) //termine le document en cas de contact a l'ennemi
-        goto fin;
+        goto term;
 
 	    }
 
 	}
-	fin:
+	term:
 	return 0;
 }
