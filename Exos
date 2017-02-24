@@ -1,0 +1,18 @@
+##2.5 exo 1
+
+```
+#include <stdio.h>
+#include <stdlib.h> //Inclusion des librairies nécéssaires.
+
+int main()
+{
+int i1=6, i2=12, i3=24; //déclaration variables int
+float f1=2, f2=4; //déclaration variables float, virgules
+double d1=5; //déclaration variable double
+char c1=7, c2=14; //déclaration variable char
+    printf("Les valeurs sont : %i ansi que %i et %i et %f et %f et %g et %d et finalement %d\n", i1,i2,i3,f1,f2,d1,c1,c2); //affichage a la suite des différentes valeurs établies
+
+    return 0;
+}
+```
+
